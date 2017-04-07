@@ -21,9 +21,9 @@ const services = { io, redisClient };
 io.adapter(ioRedis());
 
 io.on(`connection`, socket => {
-	actionHandlers(services, socket, connected());
-	socket.on(`action`, action =>
-		actionHandlers(services, socket, action));
+    actionHandlers(services, socket, connected());
+    socket.on(`action`, action =>
+        actionHandlers(services, socket, action));
 });
 
 app.use(`/build`, express.static(path.join(ROOT_PATH, `client`, `build`)));

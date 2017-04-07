@@ -10,7 +10,7 @@ import { ADD_NOTE } from "../../shared/constants";
 
 const socket = io("http://localhost:3000");
 const remoteActions = remote(socket)(
-	ADD_NOTE
+    ADD_NOTE
 );
 
 const store = createStore(reducers, applyMiddleware(remoteActions));

@@ -3,14 +3,14 @@ import { addOrReplace } from "../models/notes";
 
 export default (state = [], action) => {
 
-	switch (action.type) {
+    switch (action.type) {
 
-		case ADD_NOTE:
-			return addOrReplace(state, action.note);
+        case ADD_NOTE:
+            return addOrReplace(state, action.note);
 
-		case SET_NOTES:
-			return action.notes;
+        case SET_NOTES:
+            return action.notes;
 
-	}
-	return state;
+    }
+    return state;
 };

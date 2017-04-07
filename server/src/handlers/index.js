@@ -2,7 +2,7 @@ import _ from "lodash";
 import notes from "./notes";
 
 const handlers = [
-	notes
+    notes
 ];
 
 export default (services, socket, action) =>

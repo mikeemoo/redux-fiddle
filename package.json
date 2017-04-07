@@ -22,12 +22,13 @@
     "babel-loader": "^6.4.1",
     "babel-preset-es2015": "^6.24.0",
     "babel-preset-react": "^6.23.0",
+    "eslint": "^3.19.0",
     "webpack": "^2.3.3"
   },
   "scripts": {
     "build": "npm run build:client && npm run build:server",
     "build:server": "babel-node ./server/src/index.js",
     "build:client": "webpack --config webpack.config.js",
-	"lint": "eslint ./shared ./server/src ./client/src"
+    "lint": "eslint ./shared ./server/src ./client/src"
   }
 }
