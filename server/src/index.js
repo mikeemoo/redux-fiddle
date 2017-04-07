@@ -6,22 +6,25 @@ import path from "path";
 import redis from "redis";
 import Bluebird from "bluebird";
 import actionHandlers from "./handlers";
+import { connected } from "../../shared/actions/app";
 
 Bluebird.promisifyAll(redis.RedisClient.prototype);
 Bluebird.promisifyAll(redis.Multi.prototype);
 
 const ROOT_PATH = path.resolve(__dirname, `../../`);
-const redisClient = null;//redis.createClient();
+const redisClient = redis.createClient();
 const app = express();
 const httpServer = http.Server(app);
 const io = socketIO(httpServer);
 const services = { io, redisClient };
 
-//io.adapter(ioRedis());
+io.adapter(ioRedis());
 
-io.on(`connection`, socket =>
-    socket.on(`action`, action =>
-        actionHandlers(services, socket, action)));
+io.on(`connection`, socket => {
+	actionHandlers(services, socket, connected());
+	socket.on(`action`, action =>
+		actionHandlers(services, socket, action));
+});
 
 app.use(`/build`, express.static(path.join(ROOT_PATH, `client`, `build`)));
 

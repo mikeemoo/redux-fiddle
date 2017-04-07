@@ -1,6 +1,9 @@
 import _ from "lodash";
+import notes from "./notes";
 
-const handlers = [];
+const handlers = [
+	notes
+];
 
 export default (services, socket, action) =>
     _.each(handlers, handler =>
