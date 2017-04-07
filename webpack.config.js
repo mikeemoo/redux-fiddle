@@ -10,27 +10,27 @@ module.exports = {
 		filename: "bundle.js"
 	},
 
-    devtool:  process.env.NODE_ENV === "production" ? "" : "source-map",
+	devtool:  process.env.NODE_ENV === "production" ? "" : "source-map",
 
 	module: {
 		loaders: [
 			{
 				test: /\.jsx?$/,
-                include: path.join(__dirname, "client", "src"),
-                loader: "babel-loader"
+				include: path.join(__dirname, "client", "src"),
+				loader: "babel-loader"
 			},
-            {
-                test: /\.json$/,
-                loader: "json"
-            }
+			{
+				test: /\.json$/,
+				loader: "json"
+			}
 		]
 	},
 
-    plugins: [
-        new webpack.DefinePlugin({
-            "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV || "production")
-        })
-    ],
+	plugins: [
+		new webpack.DefinePlugin({
+			"process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV || "production")
+		})
+	],
 
 	stats: { colors: true }
 };

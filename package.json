@@ -27,6 +27,7 @@
   "scripts": {
     "build": "npm run build:client && npm run build:server",
     "build:server": "babel-node ./server/src/index.js",
-    "build:client": "webpack --config webpack.config.js"
+    "build:client": "webpack --config webpack.config.js",
+	"lint": "eslint ./shared ./server/src ./client/src"
   }
 }
