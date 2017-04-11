@@ -1,10 +1,11 @@
-Redux-fiddle is just some experienced around sharing data between the react/redux frontend and a socket server. For this I'm using socket.io
+Redux-fiddle is just some experiments based around sharing data between a react/redux frontend and a socket server. For this I'm using socket.io and express on the server.
 
-Redux actions can be flagged as remote actions which means they're automatically sent up to the socket server. Remote actions from the socket server are dispatched into the bus just like local redux actions.
+Redux actions can be flagged as remote actions which means they're automatically sent up to the socket server when dispatched. The server can respond with actions, which are automatically dispatched to the bus and interpreted just like a local redux action.
 
 # Requirements
 
-Node
+* Node
+* Redis (easily removed)
 
 # Running redux-fiddle
 
