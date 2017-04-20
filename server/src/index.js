@@ -28,7 +28,7 @@ io.on(`connection`, socket => {
 
 app.use(`/build`, express.static(path.join(ROOT_PATH, `client`, `build`)));
 
-app.get(`/`, (req, res) =>
+app.get(`*`, (req, res) =>
     res.sendFile(`${__dirname}/index.html`));
 
 httpServer.listen(3000, () =>
